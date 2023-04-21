@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDOORFARM</title>
+    <script language="JavaScript">
+     function selects(){  
+                var ele=document.getElementsByName('Days[]');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox' && ele[i].checked==false)  {
+                        ele[i].checked=true; 
+                      } else if (ele[i].type=='checkbox' && ele[i].checked==true) {
+                        ele[i].checked=false; 
+                      }
+                }  
+            }  
+            function deSelect(){  
+                var ele=document.getElementsByName('Days[]');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=false;  
+                      
+                }  
+            }             
+    </script>
+     <Style type="text/css">
+    @import "estilo1.css";
+
+  </Style>
+  <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="topnav" id="myTopnav">
+    <a><img class="LOGO" src="LOGO.png"></a>
+    <a href="home.php">Inicio</a>
+    <a href="sethora.html">Controlar Luz</a>
+    <a href="setriego.html">Controlar Riego</a>
+    <a href="sethum.html" class="active">Controlar Humedad</a>
+    <a href="settemp.html">Controlar Temperatura</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</head>
+<body>
+    <fieldset class="borde_blanco">
+    <h1 class="h1">Configurar Humedad Ambiente</h1>
+ 
+ <div class="cuadro2">
+    
+    <form action="registrar_hum.php"  method="post">
+        
+        
+        <div class="item_tabla1"><label class="label">Min.:</label>
+            <input type="number" class="item_tabla2" placeholder="0" name="hum_min"> %
+        </div>
+        <br>
+        <div class="item_tabla1"><label class="label">Max.:</label>
+            <input type="number" class="item_tabla2" placeholder="0" name="hum_max"> %
+        </div>
+        <br>
+        <div>
+            <input type="submit" class="BOTON" value="Guardar">
+        </div>
+    </form>
+    
+   </div>
+    </fieldset>
+</body>
+</html>

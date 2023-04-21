@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script language="JavaScript">
+     function selects(){  
+                var ele=document.getElementsByName('Days[]');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox' && ele[i].checked==false)  {
+                        ele[i].checked=true; 
+                      } else if (ele[i].type=='checkbox' && ele[i].checked==true) {
+                        ele[i].checked=false; 
+                      }
+                }  
+            }  
+            function deSelect(){  
+                var ele=document.getElementsByName('Days[]');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=false;  
+                      
+                }  
+            }             
+    </script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INDOORFARM</title>
+     <Style type="text/css">
+    @import "estilo1.css";
+    .weekDays-selector input {
+      display: none!important;
+    }
+    .weekDays-selector input[type=checkbox] + label {
+      border:1px solid #ccc;
+      padding:10px;
+      margin:0 0 10px;
+      display:block; 
+      cursor: pointer;
+    }
+
+    .weekDays-selector input[type=checkbox]:checked + label {
+      cursor:pointer;
+      background: #2AD705;
+      color: #ffffff;
+    }
+  </Style>
+</head>
+<!-- Load an icon library to show a hamburger menu (bars) on small screens -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="topnav" id="myTopnav">
+    <a><img class="LOGO" src="LOGO.png"></a>
+    <a href="home.php">Inicio</a>
+    <a href="sethora.html">Controlar Luz</a>
+    <a href="setriego.html" class="active">Controlar Riego</a>
+    <a href="sethum.html">Controlar Humedad</a>
+    <a href="settemp.html">Controlar Temperatura</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+<body>
+    <fieldset class="borde_blanco">
+    <h1 class="h1">Configurar Riego</h1>
+ 
+ <div class="cuadro2">
+  
+    <form action="registrar_riego.php"  method="post">
+      <div>Dias:</div>
+        <div class="weekDays-selector">
+          <input type="checkbox" onClick="selects()" id="select-all" />
+          <label for="select-all"> Seleccionar Todos</label>
+          <br/>
+          <input type="checkbox" name="Days[]" value="lunes" id="weekday-mon" class="weekday" />
+          <label for="weekday-mon">Lun</label>
+          <input type="checkbox" name="Days[]" value="martes" id="weekday-tue" class="weekday" />
+          <label for="weekday-tue">Mar</label>
+          <input type="checkbox" name="Days[]" value="miercoles" id="weekday-wed" class="weekday" />
+          <label for="weekday-wed">Mier</label>
+          <input type="checkbox" name="Days[]" value="jueves" id="weekday-thu" class="weekday" />
+          <label for="weekday-thu">Jue</label>
+          <input type="checkbox" name="Days[]" value="viernes" id="weekday-fri" class="weekday" />
+          <label for="weekday-fri">Vie</label>
+          <input type="checkbox" name="Days[]" value="sabado" id="weekday-sat" class="weekday" />
+          <label for="weekday-sat">Sab</label>
+          <input type="checkbox" name="Days[]" value="domingo" id="weekday-sun" class="weekday" />
+          <label for="weekday-sun">Dom</label>
+        </div>
+        <br>
+        <div class="item_tabla1"><label class="label">Humedad Tierra</label>
+            Min:<input type="number" class="item_tabla2" placeholder="0" name="riegoini"> Max:<input type="number" class="item_tabla3" placeholder="0" name="riegofin">
+        </div>
+        <br>
+        <div class="item_tabla1"><label class="label">Segundos de Riego:</label>
+            <input type="number" class="item_tabla2" placeholder="0" name="tiemporiego">
+        </div>
+        <br>
+        <div>
+            <input type="submit" class="BOTON" value="Guardar">
+        </div>
+    </form>
+    
+   </div>
+    </fieldset>
+</body>
+</html>
